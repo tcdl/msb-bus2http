@@ -2,7 +2,7 @@
   "name": "msb-bus2http",
   "version": "0.6.0",
   "description": "Generic service to expose HTTP endpoints through the bus.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "npmrc": "printf \"_auth = $NPM_AUTH_TOKEN\nemail = $NPM_EMAIL\n\" > .npmrc",
     "test": "npm run test-no-publish && if [ -n \"${TRAVIS_TAG}\" ]; then npm run npmrc && npm publish; fi",
@@ -26,13 +26,13 @@
     "nodemon": "^1.4.0",
     "simple-mock": "^0.3.1"
   },
-  "bin": {
-    "bus2aws": "./bin/bus2aws"
-  },
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.10.1",
     "msb": ">=0.8.0 <1",
     "request": "^2.60.0"
+  },
+  "bin": {
+    "bus2aws": "./bin/bus2http"
   }
 }

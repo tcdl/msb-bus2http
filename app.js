@@ -3,10 +3,13 @@ var app = exports;
 var config = require('./lib/config');
 var router = require('./lib/router');
 
-app.start = function() {
-  router.load(config.routes);
+app.config = config;
+app.router = router;
 
-  app.namespaces = config.routes.map(function(route) {
+app.start = function() {
+  app.router.load(app.config.routes);
+
+  app.namespaces = app.config.routes.map(function(route) {
     return route.bus.namespace;
   });
 
